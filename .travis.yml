@@ -1,0 +1,12 @@
+language: objective-c
+osx_image: xcode8.3
+rvm:
+  - 2.4.1
+before_install:
+  - chmod +x ./Scripts/install.sh
+install:
+  - ./Scripts/install.sh
+before_script:
+  - chmod +x ./Scripts/build.sh
+script:
+  - ./Scripts/build.sh
