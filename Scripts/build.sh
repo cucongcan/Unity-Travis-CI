@@ -33,8 +33,8 @@ echo "Attempting to build $project for OS X"
 #   -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project.exe" \
 #   -quit
 
-#echo 'Logs from build'
-#cat $(pwd)/unity.log
+echo 'Logs from build'
+cat $(pwd)/unity.log
 
 if [ $? = 0 ] ; then
   echo "Building Mac OS completed successfully."
