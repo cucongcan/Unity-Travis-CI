@@ -1,6 +1,7 @@
 #! /bin/sh
 
-project="ci-build"
+project="Unity-Travis-CI"
+error_code=0
 
 echo "Attempting to build $project for OS X"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
@@ -32,5 +33,16 @@ echo "Attempting to build $project for OS X"
 #   -buildLinuxUniversalPlayer "$(pwd)/Build/linux/$project.exe" \
 #   -quit
 
-echo 'Logs from build'
-cat $(pwd)/unity.log
+#echo 'Logs from build'
+#cat $(pwd)/unity.log
+
+if [ $? = 0 ] ; then
+  echo "Building Mac OS completed successfully."
+  error_code=0
+else
+  echo "Building Mac OS failed. Exited with $?."
+  error_code=1
+fi
+
+echo "Finishing with code $error_code"
+exit $error_code
